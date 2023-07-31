@@ -9,6 +9,7 @@ namespace SpaceShooter
     {
         [Header("References")]
         [SerializeField] private GameInput gameInput;
+        [SerializeField] private CameraController cameraController;
 
         [Header("Properties")]
         [SerializeField] private float speed;
@@ -30,8 +31,11 @@ namespace SpaceShooter
         private void HandleMovement ( ) {
             moveDistance = speed * Time.deltaTime;
             inputVector = gameInput.GetMovementVectorNormalized();
-            moveDirection = new Vector3( inputVector.x, inputVector.y, transform.position.z ); 
-
+            moveDirection = new Vector3( inputVector.x, inputVector.y, transform.position.z );
+            if (inputVector.y >= 0) {
+                transform.position += transform.up * cameraController.GetCameraSpeed() * Time.deltaTime;
+            }
+            
             transform.position += moveDirection * moveDistance;
         }
     }

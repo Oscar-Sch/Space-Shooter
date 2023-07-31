@@ -18,5 +18,9 @@ namespace SpaceShooter
         private void LateUpdate ( ) {
             transform.position += Vector3.up * speed * Time.deltaTime;
         }
+
+        public float GetCameraSpeed( ) {
+            return speed;
+        }
     }
 }
