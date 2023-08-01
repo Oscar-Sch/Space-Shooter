@@ -24,6 +24,7 @@ namespace SpaceShooter
         private float moveDistance;
         private Vector2 inputVector;
         private Vector3 targetPosition;
+        private Vector3 currentVelocity;
         private float maxPlayerPosX;
         private float minPlayerPosX;
         private float maxPlayerPosY;
@@ -65,14 +66,15 @@ namespace SpaceShooter
             //if (mockupPosition.y < minPlayerPosY) {
             //    mockupPosition.y = transform.position.y;
             //}
-            if (inputVector.y >= 0) {
+                if (inputVector.y >= 0) {
                 mockupPosition += transform.up * cameraController.GetCameraSpeed() * Time.deltaTime;
             }
             mockupPosition.x = Math.Clamp(mockupPosition.x, minPlayerPosX, maxPlayerPosX);
             mockupPosition.y = Math.Clamp(mockupPosition.y, minPlayerPosY, maxPlayerPosY);
+            //transform.position = Vector3.SmoothDamp(transform.position,mockupPosition,ref currentVelocity, lerpSmoothness);
             transform.position = mockupPosition;
+            //transform.position = Vector3.Lerp(transform.position, mockupPosition, lerpSmoothness);
 
-            
         }
 
     }

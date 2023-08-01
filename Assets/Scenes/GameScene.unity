@@ -1039,7 +1039,7 @@ MonoBehaviour:
   gameInput: {fileID: 1487009139}
   cameraController: {fileID: 519420033}
   speed: 4
-  lerpSmoothness: 2
+  lerpSmoothness: 1
   maxDisplacementX: 5
   minDisplacementX: -5
   maxDisplacementY: 2.5
