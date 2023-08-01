@@ -38,12 +38,12 @@ namespace SpaceShooter
         private void HandleParallax ( ) {
             for ( int i = 0; i < backgroundsArray.Length; i++ ) {
                 Vector3 actualPosition = backgroundsArray [i].position;
-                float parallax = (previousCamPos.y - cam.position.y) * (i* multiplierValue);
+                float parallax = (previousCamPos.y - cam.position.y) * (i * multiplierValue);
                 float targetY = backgroundsArray [i].position.y + parallax;
 
                 Vector3 targetPosition = new Vector3(actualPosition.x , targetY , actualPosition.z);
 
-                actualPosition = Vector3.Lerp(actualPosition , targetPosition , smoothValue * Time.deltaTime);
+                backgroundsArray [i].position = Vector3.Lerp(actualPosition , targetPosition , smoothValue * Time.deltaTime);
             }
         }
     }
